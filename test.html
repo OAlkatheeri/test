@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supabase Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/2.39.3/umd/index.js"></script>
+</head>
+<body>
+    <h1>Supabase Connection Test</h1>
+    <div id="status">Testing...</div>
+
+    <script>
+        window.addEventListener('load', function() {
+            const statusDiv = document.getElementById('status');
+            
+            if (typeof supabase === 'undefined') {
+                statusDiv.innerHTML = '❌ Supabase not loaded';
+                statusDiv.style.color = 'red';
+            } else {
+                const sb = supabase.createClient(
+                    'https://haeephlyfcoxrioohhjj.supabase.co',
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhZWVwaGx5ZmNveHJpb29oaGpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0ODE4MDksImV4cCI6MjA2NzA1NzgwOX0.YqSBhcZA6zu2PFIidZl7Qt6Paqim8kMOimqHF9OfLRQ'
+                );
+                statusDiv.innerHTML = '✅ Supabase connected successfully!';
+                statusDiv.style.color = 'green';
+            }
+        });
+    </script>
+</body>
+</html>
